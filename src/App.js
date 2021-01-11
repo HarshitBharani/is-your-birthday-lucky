@@ -4,24 +4,40 @@ import { useState } from "react";
 
 export default function App() {
   var [date, setDate] = useState(0);
+  var dateAdd = 0;
+  var out;
   var [luckyNumber, setLuckyNumber] = useState(0);
-  var [result, SetResult] = useState("");
+  
   function dateChangeHandler(event) {
     var newdate = event.target.value;
     setDate(newdate);
   }
+  
 
   function luckyNo(event) {
     var newLuckyNumber = event.target.value;
     setLuckyNumber(newLuckyNumber);
+    console.log(luckyNumber);
   }
-  function isLucky() {
-    var dateAdd = 0;
-    while (date > 0) {
-      console.log((dateAdd = dateAdd + (date % 100)));
-      date = date / 10;
+  function output(){
+    
+    
+
     }
-    console.log(dateAdd);
+  
+  function isLucky() {
+    var result= 0 ;
+    while (date > 0) {
+    dateAdd = dateAdd + Math.floor(date % 10);
+    date= date/10 ;
+    }
+     result= dateAdd%luckyNumber
+     var out;
+     if(result===0){
+          out= "Hey your date of birth is lucky";
+     }else{
+       out= "sorry your death of birth doesnt match with your lucky no " ;
+     }
   }
 
   return (
@@ -40,6 +56,7 @@ export default function App() {
       <div>
         {" "}
         <button onClick={() => isLucky()}>clickme </button>
+        <h1>{out}</h1>
       </div>
     </div>
   );
