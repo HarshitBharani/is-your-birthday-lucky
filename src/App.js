@@ -67,7 +67,7 @@ export default function App() {
       ></input>
       <div>
         {" "}
-        <button onClick={() => isLucky()}>clickme </button>
+        <button onClick={() => isLucky()}>check </button>
         <h1>{out}</h1>
       </div>
     </div>

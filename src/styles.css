@@ -62,3 +62,6 @@ button {
   border-radius: 00.5rem;
   border: 0px;
 }
+button:hover {
+  color: var(--text-color);
+}
