@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function App() {
   var [date, setDate] = useState(0);
   var dateAdd = 0;
-  var out;
+  var [out, setOut] = useState('');
   var [luckyNumber, setLuckyNumber] = useState(0);
   
   function dateChangeHandler(event) {
@@ -19,11 +19,7 @@ export default function App() {
     setLuckyNumber(newLuckyNumber);
     console.log(luckyNumber);
   }
-  function output(){
-    
-    
-
-    }
+  
   
   function isLucky() {
     var result= 0 ;
@@ -32,12 +28,13 @@ export default function App() {
     date= date/10 ;
     }
      result= dateAdd%luckyNumber
-     var out;
+    
      if(result===0){
-          out= "Hey your date of birth is lucky";
+          setOut("Hey your date of birth is lucky") ;
      }else{
-       out= "sorry your death of birth doesnt match with your lucky no " ;
+      setOut("sorry your death of birth doesnt match with your lucky no ")  ;
      }
+     return out;
   }
 
   return (
