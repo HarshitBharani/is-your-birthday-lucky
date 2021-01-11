@@ -5,41 +5,56 @@ import { useState } from "react";
 export default function App() {
   var [date, setDate] = useState(0);
   var dateAdd = 0;
-  var [out, setOut] = useState('');
+  var [out, setOut] = useState("");
   var [luckyNumber, setLuckyNumber] = useState(0);
-  
+
   function dateChangeHandler(event) {
     var newdate = event.target.value;
     setDate(newdate);
   }
-  
 
   function luckyNo(event) {
     var newLuckyNumber = event.target.value;
     setLuckyNumber(newLuckyNumber);
     console.log(luckyNumber);
   }
-  
-  
+
   function isLucky() {
-    var result= 0 ;
+    var result = 0;
     while (date > 0) {
-    dateAdd = dateAdd + Math.floor(date % 10);
-    date= date/10 ;
+      dateAdd = dateAdd + Math.floor(date % 10);
+      date = date / 10;
     }
-     result= dateAdd%luckyNumber
-    
-     if(result===0){
-          setOut("Hey your date of birth is lucky") ;
-     }else{
-      setOut("sorry your death of birth doesnt match with your lucky no ")  ;
-     }
-     return out;
+    result = dateAdd % luckyNumber;
+
+    if (result === 0) {
+      setOut("Hey your date of birth is lucky");
+    } else {
+      setOut("sorry your death of birth doesnt match with your lucky no ");
+    }
+    return out;
   }
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      <nav>
+        <ul>
+          <span class="javascript">
+            <li>
+              <a href="https://priceless-panini-117643.netlify.app">
+                javascript
+              </a>
+            </li>
+          </span>
+          <span class="react">
+            {" "}
+            <li>
+              <a href="https://smizy.csb.app/">react</a>
+            </li>
+          </span>
+        </ul>
+      </nav>
+      <h1 class="birthday">Is your birthday lucky</h1>
       <input
         onChange={() => dateChangeHandler(event)}
         className="input-text"
